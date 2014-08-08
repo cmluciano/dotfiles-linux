@@ -1,5 +1,5 @@
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH"
+export PATH="~bin:$PATH"
 export PATH="/usr/bin/"
 # Path for chruby
 export PATH="/usr/local/opt/chruby/"
@@ -9,15 +9,8 @@ export PATH="~/.chefdk/gem/ruby/2.1.0/bin"
 
 #Git autocompletion
 source ~/git-completion.bash
-
-#Go setup
-export GOPATH=~/projects/go_practice
-export PATH=$GOPATH/bin:$PATH
 #Docker vars
 export DOCKER_HOST=tcp://:2375
-
-#Hub integration
-#eval "$(hub alias -s)"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -26,9 +19,6 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
         [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
-
-#DVM (remove if using docker w/o dvm)
-#eval "$(dvm env)"
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
@@ -53,16 +43,16 @@ done
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults
 
-# Add `killall` tab completion for common apps
-complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
-
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
-export PATH=/usr/local/bin:/Users/christopherluciano/:/opt/local/bin:/opt/local/sbin:/Users/christopherluciano/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:$GOPATH/bin
+export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:$GOPATH/bin
 
-#Set ST3 as default text editor
+#Set VIM as default text editor
 export EDITOR='vim'
+#Add chruby 
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
+
+#We haz a history
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTSIZE=10000
